@@ -1,49 +1,48 @@
 # GDrive-Bulk-File-Downloader 📁 🔗
 
-This script, designed for use within Google Colab, downloads files from a specified Google Drive folder and organizes them into zip archives on your Google Drive. 
+This script, designed for use within Google Colab, downloads files from a specified Google Drive folder and organizes them into zip archives on your Google Drive. This is particularly useful for backing up large amounts of data, like videos, from Google Drive to your local machine or another cloud storage service.
 
 ## Features ✨
 
-* Downloads all files (with focus on video) from a given Google Drive folder. 📥
-* Automatically splits downloads into multiple zip archives to manage large file sizes. 📦
-* Provides progress updates during the download and zipping process. 🔄
-* Stores the downloaded zip archives in a specified folder on your Google Drive. 💾
+* **Bulk Download:** Downloads all files from a given Google Drive folder, with a focus on video files. 📥
+* **Zip Archiving:** Automatically splits downloads into multiple zip archives, making it easier to manage large file sizes. 📦
+* **Progress Updates:** Provides real-time progress updates during the download and zipping process, keeping you informed about the status. 🔄
+* **Organized Storage:** Stores the downloaded zip archives in a specified folder on your Google Drive, allowing for easy organization. 💾
 
 ## How to Use 🚀
 
-1. **Replace Placeholders:** 
-    * In the code, you'll need to replace `folder_id` with the actual ID of your Google Drive folder containing the files. 
-    * You should also modify `zip_destination_base_path` to specify the desired location on your Google Drive where the zip archives will be saved. 
-2. **Run the Code:** Execute the script in your Google Colab environment. ▶️
-3. **Authenticate:** You'll be prompted to authenticate your Google account to access Google Drive. 🔑
-4. **Download and Zip:** The script will download the files and automatically create zip archives. 📥 📦
+1. **Set up Google Cloud Project and Credentials:**
+   - To make this code work, you'll need a `credentials.json` file. If you don't know how to create one, just search on Google for instructions. You'll need to upload this file into the current Colab directory for the script to access it.
+   - **Set the `GOOGLE_APPLICATION_CREDENTIALS` Environment Variable:** After uploading the JSON key file, you need to tell your Colab environment where to find it. This is done by setting the `GOOGLE_APPLICATION_CREDENTIALS` environment variable to the path of your credentials file. Use the following code snippet, replacing `/path/to/your/credentials.json` with the actual path to your uploaded JSON file:
+   - **Important:** This environment variable is only set for the current Colab session. If you restart your runtime, you'll need to set it again.
+
+2. **Replace Placeholders in the Code:** 
+
+   - **`folder_id`:** Replace `'1xHOwL-cn_yjSVOZolt69VDCpYSlcszIn'` with the actual ID of the Google Drive folder you want to download files from. You can find the folder ID in the URL of the folder when you open it in your browser (it's the long string of characters after `/folders/`).
+   - **`zip_destination_base_path`:** Change `"/gdrive/MyDrive/Downloaded_Videos"` to the desired location on your Google Drive where you want the downloaded zip archives to be saved. Make sure the folder exists.
+   - **`/path/to/your/credentials.json`:** Double-check that this path in your code matches the actual path to your uploaded credentials JSON file.
+
+3. **Run the Code:** Execute the script in your Google Colab environment by clicking the "Play" button on the code cell. ▶️
+
+4. **Authenticate (if prompted):** If you haven't already authenticated using the JSON key file, you might be prompted to authenticate with your Google account. This usually happens if there's an issue with the credentials file or if you're using a different authentication method. 🔑
+
+5. **Download and Zip:** The script will start downloading files from the specified folder and automatically create zip archives. You'll see progress updates in the output, indicating the download status and speed. 📥 📦
 
 
 ## Data to Replace 📝
 
-*  `folder_id`:  Replace `'1xHOwL-cn_yjSVOZolt69VDCpYSlcszIn'` with the ID of your Google Drive folder. You can find the folder ID in the URL of the folder when you open it in your browser.
-*  `zip_destination_base_path`:  Change `"/gdrive/MyDrive/Downloaded_Videos"` to your preferred location on Google Drive for saving the zip files.
+*  **`folder_id`:**  Replace `'1xHOwL-cn_yjSVOZolt69VDCpYSlcszIn'` with the ID of your Google Drive folder. You can find the folder ID in the URL of the folder when you open it in your browser.
+*  **`zip_destination_base_path`:**  Change `"/gdrive/MyDrive/Downloaded_Videos"` to your preferred location on Google Drive for saving the zip files.
+*  `/path/to/your/credentials.json`: Replace with the path to your downloaded JSON credentials file.
+
 
 
 ## Summary for Non-Coders 👶
 
 Imagine you have a folder in your Google Drive full of files (primarily videos). This script, running in Google Colab, acts like a helpful robot:
 
-1. It connects to your Google Drive. 🔗
+1. It connects to your Google Drive using special "credentials" (like a key). 🔑
 2. It finds all the files in your specified folder. 🔎
 3. It downloads them one by one. 📥
 4. It neatly packs groups of files into zip files, like putting clothes into suitcases. 🧳
-5. It saves these zip files back to your Google Drive in a location you choose. 💾
-
-This way, you can easily download and organize many files from your Google Drive.
-
-
-## Disclaimer ⚠️
-
-This code is provided as-is and without warranty. Use it at your own risk. Please ensure you have the necessary permissions to access and download the files in the specified Google Drive folder. 
-
-## Potential Improvements 📈
-
-* Add error handling for network issues or invalid folder IDs. ❌
-* Allow users to customize the number of files per zip archive through an input. 🔢
-* Implement a mechanism to resume interrupted downloads. ⏯️
+5. It saves these zip files back to your Google Drive
