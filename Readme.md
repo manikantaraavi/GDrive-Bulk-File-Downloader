@@ -46,3 +46,20 @@ Imagine you have a folder in your Google Drive full of files (primarily videos).
 3. It downloads them one by one. 📥
 4. It neatly packs groups of files into zip files, like putting clothes into suitcases. 🧳
 5. It saves these zip files back to your Google Drive
+
+## 🔄 Auto Reconnect to Keep Your Session Active
+
+If you’re running a long process in Google Colab and want to prevent the session from disconnecting, you can use the auto-reconnect script provided in this repository. This script clicks the "Connect" button every 60 seconds, helping keep your session alive.
+
+## 📁 Code File
+
+The auto-reconnect code is located in the file auto_reconnect.js. To use it:
+
+1. Open the auto_reconnect.js file in your Colab environment.
+2. Copy the entire code from the file.
+3. Paste it into a new cell in your Colab notebook.
+4. Run the cell to activate the auto-reconnect functionality.
+
+## 🚀 Additional Usage Tips
+
+This script is particularly useful for keeping your session active during long-running tasks, so you don’t have to worry about unexpected disconnections! 🧘‍♂️✨
